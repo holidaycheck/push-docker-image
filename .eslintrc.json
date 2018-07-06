@@ -1,0 +1,21 @@
+{
+    "extends": "holidaycheck/es2015",
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "sourceType": "script",
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "no-return-await": "error"
+    },
+    "overrides": [
+        {
+            "files": [ "test/**/*Spec.js" ],
+            "rules": {
+                "max-statements": "off"
+            }
+        }
+    ]
+}

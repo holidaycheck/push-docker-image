@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const pushDockerImage = require('../lib/pushDockerImage');
+
+function crash(error) {
+    process.nextTick(() => {
+        throw error;
+    });
+}
+
+pushDockerImage(process.argv[2])
+    .then(() => console.log('Successfully uploaded image.'))
+    .catch(crash);

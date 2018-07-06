@@ -1,0 +1,5 @@
+/node_modules
+/result*
+*.log
+build/
+.nyc_output/

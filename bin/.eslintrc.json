@@ -1,0 +1,10 @@
+{
+    "extends": "holidaycheck/es2015/cli",
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "sourceType": "script",
+        "ecmaVersion": 2017
+    }
+}
