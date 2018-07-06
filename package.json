@@ -33,7 +33,6 @@
     "type": "git",
     "url": "git://github.com/holidaycheck/push-docker-image.git"
   },
-
   "dependencies": {
     "docker-parse-image": "3.0.1",
     "gunzip-maybe": "1.4.1",
@@ -49,6 +48,7 @@
   },
   "devDependencies": {
     "ava": "0.25.0",
+    "coveralls": "3.0.2",
     "eslint": "4.19.1",
     "eslint-config-holidaycheck": "0.13.1",
     "nyc": "12.0.2",
