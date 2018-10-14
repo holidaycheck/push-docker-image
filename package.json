@@ -37,7 +37,7 @@
     "docker-parse-image": "3.0.1",
     "gunzip-maybe": "1.4.1",
     "hasha": "3.0.0",
-    "node-fetch": "2.1.2",
+    "node-fetch": "2.2.0",
     "noop3": "999.999.999",
     "pipe-streams-to-promise": "0.2.0",
     "pretty-bytes": "5.1.0",
