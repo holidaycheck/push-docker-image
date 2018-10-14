@@ -51,7 +51,7 @@
     "coveralls": "3.0.2",
     "eslint": "5.7.0",
     "eslint-config-holidaycheck": "0.13.1",
-    "nyc": "12.0.2",
+    "nyc": "13.1.0",
     "pr-log": "3.0.0",
     "sinon": "7.0.0"
   },
