@@ -41,7 +41,7 @@
     "noop3": "1000.0.0",
     "pipe-streams-to-promise": "0.2.0",
     "pretty-bytes": "5.1.0",
-    "ramda": "0.25.0",
+    "ramda": "0.26.0",
     "rimraf": "2.6.2",
     "tar-fs": "1.16.3",
     "tmp": "0.0.33"
