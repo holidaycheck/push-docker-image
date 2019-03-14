@@ -64,7 +64,7 @@ test('rejects when the response status for initiating the upload is not 202', as
     const client = createRegistryClient(imageDetails, fetch);
     const readStream = new Readable();
 
-    const error = await t.throws(client.uploadBlob(readStream, 'anyDigest'), Error);
+    const error = await t.throwsAsync(() => client.uploadBlob(readStream, 'anyDigest'), Error);
     t.is(error.message, 'Failed to initiate blob upload to http://example.com.');
 });
 
@@ -138,7 +138,7 @@ test('rejects an error when the finialize response status is not 201', async (t)
     readStream.push('foo');
     readStream.push(null);
 
-    const error = await t.throws(client.uploadBlob(readStream, 'anyDigest'), Error);
+    const error = await t.throwsAsync(() => client.uploadBlob(readStream, 'anyDigest'), Error);
 
     t.is(error.message, 'Failed to complete blob upload to http://example.com.');
 });

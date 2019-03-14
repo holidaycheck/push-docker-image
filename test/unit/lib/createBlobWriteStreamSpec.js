@@ -18,7 +18,7 @@ test('rejects an error when the response status is not 202', async (t) => {
     readStream.push('foo');
     readStream.push(null);
 
-    await t.throws(promise);
+    await t.throwsAsync(() => promise);
 });
 
 test('makes an upload request for a single chunk', async (t) => {
