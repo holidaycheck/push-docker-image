@@ -53,7 +53,7 @@
     "eslint-config-holidaycheck": "0.13.1",
     "nyc": "13.3.0",
     "pr-log": "3.1.0",
-    "sinon": "7.2.3"
+    "sinon": "7.3.0"
   },
   "nyc": {
     "all": true,
