@@ -26,7 +26,13 @@ push-docker-image myImage.tar.gz
 ```js
 const pushDockerImage = require('push-docker-image');
 
-pushDockerImage('/path/to/myImage.tar.gz')
+const options = {
+  auth: { username: 'user', password: 'password '},
+  ssl: false
+};
+
+// The `options` argument is optional
+pushDockerImage('/path/to/myImage.tar.gz', options)
     .then(() => console.log('Successfully uploaded.')
     .catch(() => console.log('Upload failed');
 ```
