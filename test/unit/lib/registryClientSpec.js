@@ -208,3 +208,17 @@ test('calls the onProgress callback immediately when blob already exists', async
     t.is(onProgress.callCount, 1);
     t.deepEqual(onProgress.firstCall.args, [ { size: 42, done: true, alreadyExists: true } ]);
 });
+
+test('calls the onProgress callback immediately when blob already exists with SSL', async (t) => {
+    const headers = new Headers({ 'Content-Length': 42 });
+    const fetch = sinon.stub().resolves({ status: 200, headers });
+
+    const client = createRegistryClient(imageDetails, fetch, { ssl: true });
+    const readStream = new Readable();
+
+    const onProgress = sinon.stub();
+    await client.uploadBlob(readStream, 'anyDigest', { onProgress }).catch(noop);
+
+    t.is(onProgress.callCount, 1);
+    t.deepEqual(onProgress.firstCall.args, [ { size: 42, done: true, alreadyExists: true } ]);
+});
