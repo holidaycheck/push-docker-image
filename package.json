@@ -40,7 +40,7 @@
     "node-fetch": "2.3.0",
     "noop3": "1000.0.0",
     "pipe-streams-to-promise": "0.2.0",
-    "pretty-bytes": "5.1.0",
+    "pretty-bytes": "5.2.0",
     "ramda": "0.26.1",
     "rimraf": "2.6.3",
     "tar-fs": "2.0.0",
