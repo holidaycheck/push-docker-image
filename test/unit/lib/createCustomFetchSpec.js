@@ -2,45 +2,41 @@
 
 const test = require('ava');
 const http = require('http');
+const listen = require('test-listen');
 const createCustomFetch = require('../../../lib/createCustomFetch');
 
-test('verify auth header', async (t) => {
-    const port = 3000;
-
+async function customFetchMacro(t, { customFetchOptions, headers, expectedResult }) {
     const server = http.createServer((req, res) => {
         res.end(req.headers.authorization);
     });
 
-    server.listen(port);
+    const url = await listen(server);
 
-    const hasAuth = await new Promise(async (resolve) => {
-        const fetch = createCustomFetch({ username: 'test', password: 'test' });
-        const res = await fetch(`http://localhost:${port}`);
-        resolve(Boolean(await res.text()));
-    });
-
-    const hasNoAuth = await new Promise(async (resolve) => {
-        const fetch = createCustomFetch();
-        const res = await fetch(`http://localhost:${port}`);
-        resolve(Boolean(await res.text()));
-    });
-
-    const hasAuthWithHeader = await new Promise(async (resolve) => {
-        const fetch = createCustomFetch({ username: 'test', password: 'test' });
-        const res = await fetch(`http://localhost:${port}`, { headers: { 'x-test': 1 } });
-        resolve(Boolean(await res.text()));
-    });
-
-    const hasNoAuthWithHeader = await new Promise(async (resolve) => {
-        const fetch = createCustomFetch();
-        const res = await fetch(`http://localhost:${port}`, { headers: { 'x-test': 1 } });
-        resolve(Boolean(await res.text()));
-    });
+    const fetch = createCustomFetch(customFetchOptions);
+    const response = await fetch(url, headers ? { headers } : undefined);
+    const result = Boolean(await response.text());
 
     server.close();
 
-    t.is(hasAuth, true);
-    t.is(hasNoAuth, false);
-    t.is(hasAuthWithHeader, true);
-    t.is(hasNoAuthWithHeader, false);
+    t.is(result, expectedResult);
+}
+
+test('has auth', customFetchMacro, {
+    customFetchOptions: { username: 'test', password: 'test' },
+    expectedResult: true
+});
+
+test('has no auth', customFetchMacro, {
+    expectedResult: false
+});
+
+test('has auth with header', customFetchMacro, {
+    customFetchOptions: { username: 'test', password: 'test' },
+    headers: { 'x-test': 1 },
+    expectedResult: true
+});
+
+test('has no auth with header', customFetchMacro, {
+    headers: { 'x-test': 1 },
+    expectedResult: false
 });
