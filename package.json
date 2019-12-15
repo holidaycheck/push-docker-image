@@ -52,7 +52,7 @@
     "eslint": "5.16.0",
     "eslint-config-holidaycheck": "0.13.1",
     "nyc": "14.1.1",
-    "pr-log": "3.1.0",
+    "pr-log": "4.0.0",
     "sinon": "7.3.2",
     "test-listen": "1.1.0"
   },
