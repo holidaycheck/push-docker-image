@@ -44,7 +44,7 @@
     "ramda": "0.26.1",
     "rimraf": "2.6.3",
     "tar-fs": "2.0.0",
-    "tmp": "0.1.0"
+    "tmp": "0.2.1"
   },
   "devDependencies": {
     "ava": "1.4.1",
