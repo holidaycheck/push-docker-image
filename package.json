@@ -43,7 +43,7 @@
     "pretty-bytes": "5.2.0",
     "ramda": "0.26.1",
     "rimraf": "2.6.3",
-    "tar-fs": "2.0.0",
+    "tar-fs": "2.1.1",
     "tmp": "0.1.0"
   },
   "devDependencies": {
