@@ -47,7 +47,7 @@
     "tmp": "0.1.0"
   },
   "devDependencies": {
-    "ava": "1.4.1",
+    "ava": "3.0.0",
     "coveralls": "3.0.3",
     "eslint": "5.16.0",
     "eslint-config-holidaycheck": "0.13.1",
